@@ -3,11 +3,11 @@
 # defines dir to look in for files 
 files=./images/*.jpg
 
-# sets limits, images in hours between these will be kept
+# sets limits, images with hours between these will be kept
 lowLimitHours=5
 highLimitHours=22
 
-# user confirmation
+# user confirmation before deleting images
 echo "This will delete all images before $lowLimitHours:00 and after $highLimitHours:00"
 read -p "Continue anyway (y/n)? " cont
 if [ "$cont" != "y" ]
@@ -17,7 +17,7 @@ then
 fi
 echo "Ok, continuing..."
 
-# number of characters in the filename and path
+# gets the number of characters in the filename and path
 set -- ${files}
 numChar=${#1}
 
@@ -35,5 +35,6 @@ do
 	numberOfFiles=`expr $numberOfFiles + 1`
 done
 
+# user feedback
 echo "Done!"
 echo $numberDeleted" of "$numberOfFiles" images deleted."
