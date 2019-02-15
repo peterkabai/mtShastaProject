@@ -9,6 +9,7 @@ highLimitHours=21
 widthToResize=480
 
 # user confirmation before deleting images
+# TODO: Fix limit hours printout
 echo "This will delete all images before $lowLimitHours:00 and after `expr $highLimitHours-1`:59"
 read -p "Continue anyway (y/n)? " cont
 if [ "$cont" != "y" ]
